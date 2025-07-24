@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자리 배치 웹사이트</title>
+    <!-- Pretendard 폰트 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>랜덤 자리 배치</h1>
+        <!-- 1단계: 좌석 정보 입력 -->
+        <div id="step1" class="step-section">
+            <h2>좌석 정보 입력</h2>
+            <div class="input-section">
+                <label>전체 인원 수<br><input type="number" id="total" min="1"></label>
+                <label>행(세로)<br><input type="number" id="rows" min="1"></label>
+                <label>열(가로)<br><input type="number" id="cols" min="1"></label>
+            </div>
+            <div class="step-btns">
+                <button id="toStep2" class="main-btn">다음</button>
+            </div>
+        </div>
+        <!-- 2단계: 이름 입력 -->
+        <div id="step2" class="step-section" style="display:none;">
+            <h2>학생 이름 입력</h2>
+            <div id="names-inputs"></div>
+            <div class="step-btns">
+                <button id="backToStep1" class="sub-btn">이전</button>
+                <button id="toStep3" class="main-btn">다음</button>
+            </div>
+        </div>
+        <!-- 3단계: 자리 배정 -->
+        <div id="step3" class="step-section" style="display:none;">
+            <h2>자리 배정</h2>
+            <div class="step-btns">
+                <button id="backToStep2" class="sub-btn">이전</button>
+                <button id="assignAll">전체 랜덤 배정</button>
+                <button id="assignOne">한 명씩 배정</button>
+            </div>
+            <div id="seating-chart"></div>
+        </div>
+    </div>
+    <!-- 효과음 오디오 -->
+    <audio id="drumroll" src="drumroll.mp3"></audio>
+    <audio id="pop" src="pop.mp3"></audio>
+    <audio id="firework" src="firework.mp3"></audio>
+    <!-- 폭죽 애니메이션 캔버스 -->
+    <canvas id="fireworks-canvas" style="position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:100;display:none;"></canvas>
+    <script src="script.js"></script>
+    <!-- 효과음 파일은 직접 같은 폴더에 drumroll.mp3, pop.mp3, firework.mp3 이름으로 넣어주세요. 무료 효과음은 https://pixabay.com/sound-effects/search/drumroll/ 등에서 받을 수 있습니다. -->
+</body>
+</html>
